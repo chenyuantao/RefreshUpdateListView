@@ -40,16 +40,13 @@ public class RefreshUpdateListView extends ListView implements AbsListView.OnScr
 
         void onUpdate();
     }
-
-    /**
-     * 刷新完毕之后，主线程调用该方法隐藏头部布局
-     */
+    
     public void setOnRefreshUpdateListener(OnRefreshUpdateListener onRefreshUpdateListener) {
         listener = onRefreshUpdateListener;
     }
 
     /**
-     * 更新完毕之后，主线程调用该方法隐藏尾部布局
+     * 刷新完毕之后，主线程调用该方法隐藏头部布局
      */
     public void setRefreshComplete() {
         //将状态量设置为已完成
@@ -58,6 +55,9 @@ public class RefreshUpdateListView extends ListView implements AbsListView.OnScr
         headerView.setPadding(0, -headerViewHeight, 0, 0);
     }
 
+    /**
+     * 更新完毕之后，主线程调用该方法隐藏尾部布局
+     */
     public void setUpdateComplete() {
         //将状态量设置为已完成
         state = DONE;
